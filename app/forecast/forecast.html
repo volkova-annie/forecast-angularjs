@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="column" ng-controller="SuggestionCtrl">
+    <input type="text" ng-model="city" ng-change="onType(event)" name="city" class="city" placeholder="Please enter city"/>
+    <ul ng-if="hasCities()" class="suggestions">
+      <li ng-click="onChoose(city)" ng-repeat="city in cities" class="suggestions-item">{{city}}</li>
+    </ul>
+    {{inputCity}}
+  </div>
+  <div class="column" ng-controller="ForecastCtrl" class="forecast">
+    <div ng-if="hasForecast()" class="column result">
+     <div class="column-city">{{city}}, {{country}}</div>
+      <div class="column-weather">
+         <div class="main">
+          <div class="temp">{{temp}}&#8451;</div>
+          <div class="description">{{description}}</div>
+        </div>
+        <ul class="list">
+          <li class="list-item">
+            <div class="list-item-index">T-min: </div>
+            <div class="list-item-index">{{temp_min}}&#8451;</div>
+          </li>
+          <li class="list-item">
+            <div class="list-item-index">T-max: </div>
+            <div class="list-item-index">{{temp_max}}&#8451;</div>
+          </li>
+          <li class="list-item">
+            <div class="list-item-index">Pressure: </div>
+            <div class="list-item-index">{{pressure}}mm</div>
+          </li>
+          <li class="list-item">
+            <div class="list-item-index">Humidity: </div>
+            <div class="list-item-index">{{humidity}}%</div>
+          </li>
+          <li class="list-item">
+            <div class="list-item-index">Wind: </div>
+            <div class="list-item-index">{{speed}}m/s</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
